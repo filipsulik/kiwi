@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import {t9} from '../utils'
 
 const Button = styled.button`
@@ -37,7 +36,6 @@ const Digit = styled.p`
   color: black;
   font-weight: 700;
   font-size: 30px;
-  margin: 0;
 `
 
 const Letters = styled.p`
@@ -45,7 +43,6 @@ const Letters = styled.p`
   font-size: 12px;
   letter-spacing: 0.1em;
   color: #666666;
-  margin: 0;
 `
 
 const ButtonComponent = ({char, ...rest}) => {
@@ -55,10 +52,6 @@ const ButtonComponent = ({char, ...rest}) => {
       {t9[char].length > 1 && <Letters>{t9[`${char}`]}</Letters>}
     </Button>
   )
-}
-
-ButtonComponent.propTypes = {
-  char: PropTypes.string,
 }
 
 export default ButtonComponent

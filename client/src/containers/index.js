@@ -1,4 +1,5 @@
 import Keyboard from './Keyboard'
 import Suggestions from './Suggestions'
+import RenderedText from './RenderedText'
 
-export {Keyboard, Suggestions}
+export {Keyboard, Suggestions, RenderedText}

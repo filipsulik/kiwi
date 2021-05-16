@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Button} from '../components'
-import PropTypes from 'prop-types'
 
 const Grid = styled.div`
   display: inline-grid;
@@ -15,10 +14,6 @@ const Keyboard = ({onClick, ...rest}) => {
         .map(char => <Button onClick={() => onClick(char)} key={char} char={char} />)}
     </Grid>
   )
-}
-
-Keyboard.propTypes = {
-
 }
 
 export default Keyboard

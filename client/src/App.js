@@ -1,7 +1,7 @@
-import React, {useMemo, useRef} from 'react'
+import React, {useMemo, useRef, useState} from 'react'
 import styled from 'styled-components'
 import {Field, Form, FormSpy} from 'react-final-form'
-import {Keyboard, Suggestions} from './containers'
+import {Keyboard, Suggestions, RenderedText} from './containers'
 import {Input} from './components'
 
 const Container = styled.div`
@@ -35,8 +35,9 @@ const debounce = (func) => {
 
 function App() {
   const input = useRef(null)
-  const [data, setData] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
+  const [renderedWords, setRenderedWords] = useState([])
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
   const getSuggestions = useMemo(() => debounce((code) => {
     if (!code) {
       setData(() => null)
@@ -61,7 +62,7 @@ function App() {
             input.current.focus()
           },
         }}
-        onSubmit={({code, ...rest}) => {
+        onSubmit={({code}) => {
           setLoading(true)
           getSuggestions(code)
         }}
@@ -81,12 +82,14 @@ function App() {
                   onMouseDown={e => {
                     e.preventDefault()
                   }}
+                  onPick={(word) => setRenderedWords(() => [...renderedWords, word])}
                   loading={loading}
                   data={data}
                 />
               )}
+              <RenderedText data={renderedWords} />
             </Wrapper>
-            <div style={{height: 140}} />
+            <div style={{height: 130}} />
             <Keyboard
               onClick={form.mutators.addValue}
               onMouseDown={e => {

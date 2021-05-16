@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 const Row = styled.div`
   display: flex;
@@ -27,17 +26,13 @@ const Tag = styled.p`
   color: #FFA53B;
 `
 
-const Item = ({text, code, real}) => {
+const Item = ({text, real, ...rest}) => {
   return (
-    <Row>
+    <Row {...rest}>
       <Text>{text}</Text>
       {real ? <Tag>real word</Tag> : <Tag style={{color: '#CCCCCC'}}>+ add to dictionary</Tag>}
     </Row>
   )
-}
-
-Item.propTypes = {
-  
 }
 
 export default Item

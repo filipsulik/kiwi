@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import {Item} from '../components'
 
 const Wrapper = styled.div`
@@ -18,17 +17,13 @@ const Wrapper = styled.div`
   border-radius: 10px;
 `
 
-const Suggestions = ({loading, data, ...rest}) => {
+const Suggestions = ({loading, data, onPick, ...rest}) => {
   if (loading || !data?.length) return null
   return (
     <Wrapper {...rest}>
-      {data?.map(suggestion => <Item key={suggestion.text} {...suggestion} />)}
+      {data?.map(suggestion => <Item onClick={() => onPick(suggestion)} key={suggestion.text} {...suggestion} />)}
     </Wrapper>
   )
-}
-
-Suggestions.propTypes = {
-  data: PropTypes.array,
 }
 
 export default Suggestions

@@ -64,6 +64,9 @@ const GlobalStyle = createGlobalStyle`
   * {
     font-family: Poppins, sans-serif;
   }
+  p {
+    margin: 0;
+  }
 `
 
 ReactDOM.render(
