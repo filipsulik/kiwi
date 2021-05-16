@@ -1,6 +1,6 @@
 const csvParser = require('csv-parser')
 const fs = require('fs')
-const {wordToNumber} = require('../../utils')
+const {wordToNumber} = require('../../../client/src/utils')
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
