@@ -36,6 +36,11 @@ function App() {
   const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const getSuggestions = useMemo(() => debounce((code) => {
+    if (!code) {
+      setData(() => null)
+      setLoading(false)
+      return
+    }
     fetch(`/words/${code}`)
       .then((res) => res.json())
       .then((data) => {
@@ -49,8 +54,8 @@ function App() {
       <Form
         onSubmit={({code}) => {
           setLoading(true)
-          getSuggestions(code)}
-        }
+          getSuggestions(code)
+        }}
         render={({handleSubmit}) => (
           <StyledForm>
             <FormSpy subscription={{values: true}} onChange={handleSubmit} />

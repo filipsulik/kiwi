@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import {Item} from '../components'
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,13 +14,15 @@ const Wrapper = styled.div`
   top: 70px;
   padding: 20px;
   box-sizing: border-box;
+  max-height: 200px;
+  overflow: auto;
 `
 
 const Suggestions = ({loading, data}) => {
   if (loading || !data?.length) return null
   return (
     <Wrapper>
-      {data?.map(suggestion => <p>{suggestion}</p>)}
+      {data?.map(suggestion => <Item key={suggestion.text} {...suggestion} />)}
     </Wrapper>
   )
 }

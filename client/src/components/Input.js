@@ -76,7 +76,7 @@ const InputComponent = ({input, meta, loading}) => {
     <InputWrapper>
       <Input autoComplete="off" error={error} {...input} />
       {loading && <SpinnerWrapper>
-        <div style={{transform: 'scale(0.2)'}}>
+        <div style={{transform: 'scale(0.15)'}}>
           <Spinner />
         </div>
       </SpinnerWrapper>}
