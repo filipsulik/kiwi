@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 const RenderedText = ({data}) => {
   return (
     <Wrapper>
-      {data.map(word => <Word key={word.text} {...word} />)}
+      {data.map((word, i) => <Word key={i} {...word} />)}
     </Wrapper>
   )
 }
