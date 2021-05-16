@@ -17,8 +17,7 @@ export default styled.div`
   width: 11em;
   height: 11em;
   border-radius: 50%;
-  background: red;
-  background: linear-gradient(to right, blue 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, #3CA1FF 10%, rgba(255, 255, 255, 0) 42%);
   position: relative;
   animation: ${load3} 0.5s infinite linear;
   transform: translateZ(0);
@@ -38,7 +37,7 @@ export default styled.div`
   :before {
     width: 50%;
     height: 50%;
-    background: blue;
+    background: #3CA1FF;
     border-radius: 100% 0 0 0;
     position: absolute;
     top: 0;

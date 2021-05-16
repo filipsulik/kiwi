@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  padding: 5px;
 `
 
 const StyledForm = styled.form`
@@ -60,13 +61,13 @@ function App() {
             input.current.focus()
           },
         }}
-        onSubmit={({code}) => {
+        onSubmit={({code, ...rest}) => {
           setLoading(true)
           getSuggestions(code)
         }}
-        render={({handleSubmit, active, form}) => (
+        render={({handleSubmit, active, form, errors}) => (
           <StyledForm>
-            <FormSpy subscription={{values: true}} onChange={handleSubmit} />
+            <FormSpy subscription={{values: true}} onChange={() => !errors.code && handleSubmit()} />
             <Wrapper>
               <Field
                 ref={input}
