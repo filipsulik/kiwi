@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import Spinner from './Spinner'
 import styled, {keyframes, css} from 'styled-components'
 
 const shake = keyframes`
@@ -22,15 +23,34 @@ const shake = keyframes`
 const Input = styled.input`
   outline: none;
   height: 50px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 0 50px 0 20px;
   ${props => props.error && css`
     border-color: red !important;
     animation: ${shake} 0.2s linear infinite;
   `}
 `
+const SpinnerWrapper = styled.div`
+  height: 100%;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+`
+
+const InputWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`
 
 let timeout
 
-const InputComponent = ({input, meta}) => {
+const InputComponent = ({input, meta, loading}) => {
   const [error, setError] = useState(false)
 
   const throwError = () => {
@@ -53,7 +73,14 @@ const InputComponent = ({input, meta}) => {
   }, [])
 
   return (
-    <Input error={error} {...input} />
+    <InputWrapper>
+      <Input autoComplete="off" error={error} {...input} />
+      {loading && <SpinnerWrapper>
+        <div style={{transform: 'scale(0.2)'}}>
+          <Spinner />
+        </div>
+      </SpinnerWrapper>}
+    </InputWrapper>
   )
 }
 

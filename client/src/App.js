@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 import styled from 'styled-components'
 import {Field, Form, FormSpy} from 'react-final-form'
-import {Keyboard} from './containers'
+import {Keyboard, Suggestions} from './containers'
 import {Input} from './components'
 
 const Container = styled.div`
@@ -13,27 +13,56 @@ const Container = styled.div`
   justify-content: center;
 `
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
 `
 
+const debounce = (func) => {
+  let timer
+  return (...args) => {
+    clearTimeout(timer)
+    timer = setTimeout(() => { func.apply(this, args) }, 300)
+  }
+}
+
 function App() {
   const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+  const getSuggestions = useMemo(() => debounce((code) => {
+    fetch(`/words/${code}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(() => data)
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }), [])
   return (
     <Container>
       <Form
-        onSubmit={({code}) => code?.length && fetch(`/words/${code}`)
-          .then((res) => res.json())
-          .then((data) => setData(() => data))}
+        onSubmit={({code}) => {
+          setLoading(true)
+          getSuggestions(code)}
+        }
         render={({handleSubmit}) => (
           <StyledForm>
             <FormSpy subscription={{values: true}} onChange={handleSubmit} />
-            <Field
-              name="code"
-              component={Input}
-              validate={value => value?.length && !value.match(/^[2-9]*$/g)}
-            />
+            <Wrapper>
+              <Field
+                name="code"
+                component={Input}
+                validate={value => value?.length && !value.match(/^[2-9]*$/g)}
+                loading={loading}
+              />
+              <Suggestions loading={loading} data={data} />
+            </Wrapper>
             <div style={{height: 100}} />
             <Keyboard />
           </StyledForm>
