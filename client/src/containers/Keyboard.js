@@ -8,11 +8,11 @@ const Grid = styled.div`
   grid-template-columns: auto auto auto;
 `
 
-const Keyboard = () => {
+const Keyboard = ({onClick, ...rest}) => {
   return (
-    <Grid>
+    <Grid {...rest}>
       {['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#']
-        .map(char => <Button key={char} char={char} />)}
+        .map(char => <Button onClick={() => onClick(char)} key={char} char={char} />)}
     </Grid>
   )
 }

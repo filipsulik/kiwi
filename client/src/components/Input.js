@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {forwardRef, useEffect, useState} from 'react'
 import Spinner from './Spinner'
 import styled, {keyframes, css} from 'styled-components'
 
@@ -50,7 +50,7 @@ const InputWrapper = styled.div`
 
 let timeout
 
-const InputComponent = ({input, meta, loading}) => {
+const InputComponent = forwardRef(({input, meta, loading}, ref) => {
   const [error, setError] = useState(false)
 
   const throwError = () => {
@@ -74,7 +74,7 @@ const InputComponent = ({input, meta, loading}) => {
 
   return (
     <InputWrapper>
-      <Input autoComplete="off" error={error} {...input} />
+      <Input ref={ref} autoComplete="off" error={error} {...input} />
       {loading && <SpinnerWrapper>
         <div style={{transform: 'scale(0.15)'}}>
           <Spinner />
@@ -82,6 +82,6 @@ const InputComponent = ({input, meta, loading}) => {
       </SpinnerWrapper>}
     </InputWrapper>
   )
-}
+})
 
 export default InputComponent

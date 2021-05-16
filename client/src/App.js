@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react'
+import React, {useMemo, useRef} from 'react'
 import styled from 'styled-components'
 import {Field, Form, FormSpy} from 'react-final-form'
 import {Keyboard, Suggestions} from './containers'
@@ -33,6 +33,7 @@ const debounce = (func) => {
 }
 
 function App() {
+  const input = useRef(null)
   const [data, setData] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const getSuggestions = useMemo(() => debounce((code) => {
@@ -52,24 +53,45 @@ function App() {
   return (
     <Container>
       <Form
+        mutators={{
+          addValue: ([digit], state, utils) => {
+            const value = state.formState.values?.code || ''
+            utils.changeValue(state, 'code', () => `${value}${digit}`)
+            input.current.focus()
+          },
+        }}
         onSubmit={({code}) => {
           setLoading(true)
           getSuggestions(code)
         }}
-        render={({handleSubmit}) => (
+        render={({handleSubmit, active, form}) => (
           <StyledForm>
             <FormSpy subscription={{values: true}} onChange={handleSubmit} />
             <Wrapper>
               <Field
+                ref={input}
                 name="code"
                 component={Input}
                 validate={value => value?.length && !value.match(/^[2-9]*$/g)}
                 loading={loading}
               />
-              <Suggestions loading={loading} data={data} />
+              {active && (
+                <Suggestions
+                  onMouseDown={e => {
+                    e.preventDefault()
+                  }}
+                  loading={loading}
+                  data={data}
+                />
+              )}
             </Wrapper>
-            <div style={{height: 100}} />
-            <Keyboard />
+            <div style={{height: 140}} />
+            <Keyboard
+              onClick={form.mutators.addValue}
+              onMouseDown={e => {
+                e.preventDefault()
+              }}
+            />
           </StyledForm>
         )}
       />

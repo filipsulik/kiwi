@@ -6,14 +6,32 @@ const Row = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 20px;
+  height: 30px;
+  padding: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  :hover {
+    background: #F4F4F4;
+  }
+`
+
+const Text = styled.p`
+  color: #666666;
+  font-size: 16px;
+  font-weight: 500;
+`
+
+const Tag = styled.p`
+  font-size: 10px;
+  font-weight: 500;
+  color: #FFA53B;
 `
 
 const Item = ({text, code, real}) => {
   return (
     <Row>
-      <p>{text}</p>
-      {real ? <p color="orange">real word</p> : <a>+ add to dictionary</a>}
+      <Text>{text}</Text>
+      {real ? <Tag>real word</Tag> : <a>+ add to dictionary</a>}
     </Row>
   )
 }
