@@ -31,7 +31,7 @@ const Item = ({text, code, real}) => {
   return (
     <Row>
       <Text>{text}</Text>
-      {real ? <Tag>real word</Tag> : <a>+ add to dictionary</a>}
+      {real ? <Tag>real word</Tag> : <Tag style={{color: '#CCCCCC'}}>+ add to dictionary</Tag>}
     </Row>
   )
 }

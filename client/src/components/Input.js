@@ -74,6 +74,12 @@ const InputComponent = forwardRef(({input, meta, loading}, ref) => {
     return () => clearTimeout(timeout)
   }, [])
 
+  useEffect(() => {
+    if (!meta.active) {
+      input.onChange('')
+    }
+  }, [meta.active])
+
   return (
     <InputWrapper>
       <Input ref={ref} autoComplete="off" error={error} {...input} />
