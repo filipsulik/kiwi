@@ -23,13 +23,13 @@ const shake = keyframes`
 const Input = styled.input`
   outline: none;
   height: 50px;
-  border: 1px solid #C4C4C4;
+  border: 1px solid ${props => props.theme.colors.grey3};
   box-sizing: border-box;
   padding: 0 50px 0 20px;
   border-radius: 5px;
-  color: #666666;
+  color: ${props => props.theme.colors.grey4};
   ${props => props.error && css`
-    border-color: #FF473C !important;
+    border-color: ${props => props.theme.colors.red} !important;
     animation: ${shake} 0.2s linear infinite;
   `}
 `

@@ -10,27 +10,27 @@ const Button = styled.button`
   width: 100px;
   height: 70px;
   border-radius: 40px;
-  background: #F4F4F4;
+  background: ${props => props.theme.colors.grey1};
   margin: 5px;
   :hover {
-    background: #C4C4C4;
+    background: ${props => props.theme.colors.grey3};
   }
   :active {
-    background: #FFA53C;
+    background: ${props => props.theme.colors.orange};
     * {
-      color: white;
+      color: ${props => props.theme.colors.white};
     }
   }
   :disabled, [disabled] {
     pointer-events: none;
     * {
-      color: #C4C4C4;
+      color: ${props => props.theme.colors.grey3};
     }
   }
 `
 
 const Digit = styled.p`
-  color: black;
+  color: ${props => props.theme.colors.black};
   font-weight: 700;
   font-size: 30px;
 `
@@ -38,7 +38,7 @@ const Digit = styled.p`
 const Letters = styled.p`
   font-weight: 600;
   font-size: 12px;
-  color: #666666;
+  color: ${props => props.theme.colors.grey4};
 `
 
 const ButtonComponent = ({char, ...rest}) => {

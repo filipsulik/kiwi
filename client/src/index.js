@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import 'normalize.css';
 import reportWebVitals from './reportWebVitals';
+import theme from './theme';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
@@ -77,8 +78,10 @@ const GlobalStyle = createGlobalStyle`
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <App />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

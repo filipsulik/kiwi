@@ -11,14 +11,14 @@ const Wrapper = styled.div`
 const Text = styled.p`
   font-weight: 600;
   font-size: 16px;
-  color: black;
+  color: ${props => props.theme.colors.black};
   line-height: 1.5;
 `
 
 const Code = styled.p`
   font-weight: 500;
   font-size: 8px;
-  color: #FFA53B;
+  color: ${props => props.theme.colors.orange};
 `
 
 const Word = ({text, code}) => {

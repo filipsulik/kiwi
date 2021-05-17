@@ -12,12 +12,12 @@ const Row = styled.div`
   border-radius: 5px;
   flex-shrink: 0;
   :hover {
-    background: #F4F4F4;
+    background: ${props => props.theme.colors.grery1};
   }
 `
 
 const Text = styled.p`
-  color: #666666;
+  color: ${props => props.theme.colors.grery4};
   font-size: 16px;
   font-weight: 500;
 `
@@ -25,7 +25,7 @@ const Text = styled.p`
 const Tag = styled.p`
   font-size: 10px;
   font-weight: 500;
-  color: #FFA53B;
+  color: ${props => props.theme.colors.orange};
 `
 
 const Item = ({text, code, real: realTmp, ...rest}) => {

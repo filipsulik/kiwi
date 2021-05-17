@@ -17,12 +17,12 @@ export default styled.div`
   width: 11em;
   height: 11em;
   border-radius: 50%;
-  background: linear-gradient(to right, #3CA1FF 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, ${props => props.theme.colors.blue} 10%, rgba(255, 255, 255, 0) 42%);
   position: relative;
   animation: ${load3} 0.5s infinite linear;
   transform: translateZ(0);
   :after {
-    background: white;
+    background: ${props => props.theme.colors.white};
     width: 85%;
     height: 85%;
     border-radius: 50%;
@@ -37,7 +37,7 @@ export default styled.div`
   :before {
     width: 50%;
     height: 50%;
-    background: #3CA1FF;
+    background: ${props => props.theme.colors.blue};
     border-radius: 100% 0 0 0;
     position: absolute;
     top: 0;

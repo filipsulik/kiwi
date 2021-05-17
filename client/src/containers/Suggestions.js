@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   max-height: 100px;
   overflow: auto;
-  background: #FFFFFF;
+  background: ${props => props.theme.colors.white};
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
 `
