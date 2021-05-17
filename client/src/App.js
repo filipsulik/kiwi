@@ -76,7 +76,7 @@ function App() {
                 ref={input}
                 name="code"
                 component={Input}
-                validate={value => value?.length && (!value.match(/^[2-9]*$/g) || value.length > 5)}
+                validate={value => value?.length && (!value.match(/^[2-9]*$/g) || value.length > 12)}
                 loading={loading}
               />
               {active && (
