@@ -5156,7 +5156,7 @@
   dependencies:
     "to-regex-range" "^5.0.1"
 
-"final-form@^4.20.0":
+"final-form@^4.20.0", "final-form@^4.20.2":
   "integrity" "sha512-5i0IxqwjjPG1nUNCjWhqPCvQJJ2R+QwTwaAnjPmFnLbyjIHWuBPU8u+Ps4G3TcX2Sjno+O5xCZJzYcMJEzzfCQ=="
   "resolved" "https://registry.npmjs.org/final-form/-/final-form-4.20.2.tgz"
   "version" "4.20.2"
