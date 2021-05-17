@@ -1,10 +1,11 @@
 ## How to install
 
-1) ### `npm run install`
+1) ### `npm install`
+2) ### `npm run install`
    this install packages in both server and client
-2) ### `npm run init`
+3) ### `npm run init`
    this creates the database, runs migrations and seeds
-3) ### `npm run start`
+4) ### `npm run start`
     this starts the app
 
 now the app runs on port 3000
