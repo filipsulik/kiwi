@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/filipsulik/kiwi/issues"
   },
-  "homepage": "https://github.com/filipsulik/kiwi#readme"
+  "homepage": "https://github.com/filipsulik/kiwi#readme",
+  "dependencies": {
+    "concurrently": "^6.1.0"
+  }
 }
