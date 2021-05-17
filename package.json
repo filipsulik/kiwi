@@ -1,0 +1,19 @@
+{
+  "name": "kiwi",
+  "version": "1.0.0",
+  "scripts": {
+    "init": "cd server && npm run migrate && npm run seed",
+    "start": "concurrently \"cd server && npm run start\" \"cd client && npm run start\"",
+    "install": "concurrently \"cd server && npm install\" \"cd client && npm install\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filipsulik/kiwi.git"
+  },
+  "author": "filip sulik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/filipsulik/kiwi/issues"
+  },
+  "homepage": "https://github.com/filipsulik/kiwi#readme"
+}

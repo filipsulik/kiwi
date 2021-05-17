@@ -1,19 +1,11 @@
 ## How to install
 
-go to the kiwi/server folder then,
-
-1) ### `npm install`
-2) ### `npm run migrate`
-   this creates the database with Words table inside
-3) ### `npm run seed`
-    this fills the table with english words
-4) ### `npm run start`
-   this starts the server and connects the database
-
-now go to kiwi/client folder
-
-1) ### `npm install`
-2) ### `npm run start`
+1) ### `npm run install`
+   this install packages in both server and client
+2) ### `npm run init`
+   this creates the database, runs migrations and seeds
+3) ### `npm run start`
+    this starts the app
 
 now the app runs on port 3000
 
