@@ -63,7 +63,9 @@ function App() {
           },
         }}
         onSubmit={({code}) => {
-          setLoading(true)
+          if (code) {
+            setLoading(true)
+          }
           getSuggestions(code)
         }}
         render={({handleSubmit, active, form, errors}) => (

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import AddNewWordButton from './AddNewWordButton'
+import theme from '../theme'
 
 const Row = styled.div`
   display: flex;
@@ -10,14 +11,15 @@ const Row = styled.div`
   padding: 0 10px;
   cursor: pointer;
   border-radius: 5px;
+  box-sizing: border-box;
   flex-shrink: 0;
   :hover {
-    background: ${props => props.theme.colors.grery1};
+    background: ${props => props.theme.colors.grey1};
   }
 `
 
 const Text = styled.p`
-  color: ${props => props.theme.colors.grery4};
+  color: ${props => props.theme.colors.grey4};
   font-size: 16px;
   font-weight: 500;
 `
@@ -48,7 +50,7 @@ const Item = ({text, code, real: realTmp, ...rest}) => {
               }).then(() => setReal(true))
             }}
           >
-            <Tag style={{color: '#CCCCCC'}}>+ add to dictionary</Tag>
+            <Tag style={{color: theme.colors.grey4}}>+ add to dictionary</Tag>
           </AddNewWordButton>
         )}
     </Row>
