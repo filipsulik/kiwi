@@ -33,6 +33,7 @@ const Input = styled.input`
     animation: ${shake} 0.2s linear infinite;
   `}
 `
+
 const SpinnerWrapper = styled.div`
   height: 100%;
   width: 50px;

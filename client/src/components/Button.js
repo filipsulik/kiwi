@@ -12,9 +12,6 @@ const Button = styled.button`
   border-radius: 40px;
   background: #F4F4F4;
   margin: 5px;
-  border-image: none;
-  border-style: none;
-  cursor: pointer;
   :hover {
     background: #C4C4C4;
   }
@@ -41,7 +38,6 @@ const Digit = styled.p`
 const Letters = styled.p`
   font-weight: 600;
   font-size: 12px;
-  letter-spacing: 0.1em;
   color: #666666;
 `
 

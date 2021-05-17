@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
+app.use(express.json())
+
 app.get('/words/:code', async (req, res) => {
   const words = await Word.findAll({ where: { code: req.params.code } }) || []
   res.send(
@@ -18,6 +20,11 @@ app.get('/words/:code', async (req, res) => {
           .map(word => ({text: word, code: req.params.code, real: false}))
       )
   )
+})
+
+app.post('/words', async (req, res) => {
+  await Word.create(req.body)
+  res.send('success')
 })
 
 app.listen(PORT, () => {

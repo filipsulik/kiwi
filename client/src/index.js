@@ -66,6 +66,12 @@ const GlobalStyle = createGlobalStyle`
   }
   p {
     margin: 0;
+    letter-spacing: 0.1em;
+  }
+  button {
+    border-image: none;
+    border-style: none;
+    cursor: pointer;
   }
 `
 
