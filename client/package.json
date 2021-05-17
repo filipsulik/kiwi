@@ -21,6 +21,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=14.15.4"
+  },
   "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": [
