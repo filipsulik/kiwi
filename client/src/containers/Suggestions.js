@@ -22,7 +22,7 @@ const Suggestions = ({loading, data, onPick, ...rest}) => {
     return (
       <Item key={key} style={style} onClick={() => onPick(suggestion)} {...suggestion} />
     )
-  }, [data])
+  }, [data, onPick])
   if (loading || !data?.length) return null
   return (
     <Wrapper {...rest}>
