@@ -1,3 +1,5 @@
+assignment can be found in kiwi/assignment.pdf
+
 ## How to install
 
 1) ### `npm install`
